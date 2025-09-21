@@ -9,8 +9,23 @@ const LoginUser = () => {
     } else {
         const getAllUser = JSON.parse(localStorage.getItem('userdetail'));
 
-        console.log(getAllUser);
+        const user = getAllUser.find(u => u.name === fullName.value && u.password === password.value);
 
+        console.log(user);
+
+        if (user) {
+            console.log(user.role);
+            localStorage.setItem('currentUser', JSON.stringify(user));
+            if (user.role === "admin") {
+                window.location.href = 'admin.html';
+            } else if (user.role === "User" ){
+                window.location.href = 'index.html'
+            }
+
+            
+        } else {
+            alert('Invalid username or password');
+        }
     }
 
 }

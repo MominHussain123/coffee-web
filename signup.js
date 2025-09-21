@@ -14,7 +14,8 @@ const RegisteredUser = () => {
                 JSON.stringify([
                     {
                         name: fullName.value,
-                        password: password.value
+                        password: password.value,
+                        role:'User'
                     }
                 ])
             ]
@@ -31,7 +32,8 @@ const RegisteredUser = () => {
                         ...getAllUser,
                         {
                             name: fullName.value,
-                            password: password.value
+                            password: password.value,
+                            role:'User'
                         }
                     ])
                 ]
